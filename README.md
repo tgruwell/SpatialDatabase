@@ -1,7 +1,9 @@
 Spatial Database
 ===============
 
-A spatial database in JavaScript.
+A 2D spatial database in JavaScript. Efficiently find intersections between objects.
+
+*Not a permanent storage engine. Not intended for concurrent access. Yet.*
 
 ## Example Usage
 
@@ -92,10 +94,10 @@ Use the "query" function and pass in an object through the "intersecting" proper
 
 	db.put({type: "circle", x:40, y:90, r: 30, rot:{a:80*Math.PI/180, x:100, y:300}});
 
-	// Find all objects that are intersecting a circle
+	// Find all objects that are intersecting a circle and have MyAttribute = "xyz"
 	var results = db.query({MyAttribute: "xyz", intersecting: {type: "circle", x: 100, y: 100, r: 50}});
 
-The result of the query will be an array of objects that intersect the query criteria and match MyAttribute: "xyz". An attribute details.points will be included with each result. This will be an array of 0 or more points indicating the point the object edge intersected with the criteria edge. The points are Sylvester Vector objects who's x and y values can be accessed as follows
+The result of the query will be an array of objects that intersect the query criteria and match MyAttribute = "xyz". An attribute details.points will be included with each result. This will be an array of 0 or more points indicating the point the object edge intersected with the criteria edge. The points are Sylvester Vector objects who's x and y values can be accessed as follows
 
 	results[i].details.points[j].e(1); // X value of one of the points 
 	results[i].details.points[j].e(2); // Y value of one of the points
@@ -108,7 +110,7 @@ Depends on
 
 These are included in spatialdatabase.min.js.
 
-If you already have these included in your project you can use spatialdatabase.nodepend.min.js.
+If these dependencies are already included in your project you can use spatialdatabase.nodepend.min.js.
 
 ## MIT License
 
