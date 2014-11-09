@@ -17,24 +17,36 @@ A spatial database in JavaScript.
 
 ## Object Types &amp; Attributes
 
-* point - x, y
+point - x, y
+
 	db.put({type: "point", x:10, y:20});
-* rect  - x, y, w (width), h (height)
+
+rect  - x, y, w (width), h (height)
+
 	db.put({type: "rect", x:10, y:20, w:70, h:80});
-* lineseg - p1: {x, y}, p2: {x, y}
+
+lineseg - p1: {x, y}, p2: {x, y}
+
 	db.put({type: "lineseg", p1: {x:10, y:10}, p2: {x:120, y:300});
-* polygon - points: [{x,y}, {x,y},...]
+
+polygon - points: [{x,y}, {x,y},...]
+
 	db.put({type: "polygon", points: [{x:120, y:120}, {x:130, y: 110}, {x:200, y: 200}]});
-* circle - x, y, r (radius)
+
+circle - x, y, r (radius)
+
 	db.put({type: "circle", x:40, y:90, r: 30});
 
 ## Rotation
 
 Any object may be rotated using the "rot" attribute.
 
-* To rotate about the object's center just specify the angle in radians.
+To rotate about the object's center just specify the angle in radians.
+
 	db.put({type: "rect", x:100, y:100, w:100, h:80, rot:45*Math.PI/180});
-* To rotate about an arbitrary point pass a struct in with both the angle and the point to rotate around.
+
+To rotate about an arbitrary point pass a struct in with both the angle and the point to rotate around.
+
 	db.put({type: "rect", x:100, y:300, w:100, h:80, rot:{a:80*Math.PI/180, x:101, y:300}});
 
 ## Put
@@ -73,5 +85,6 @@ Depends on
 * Sylvester - https://github.com/jcoglan/sylvester
 * RTree - https://github.com/leaflet-extras/RTree
 
-These are included in spatialdatabase.min.js
-If you already have these included in your project you can use spatialdatabase.nodepend.min.js
+These are included in spatialdatabase.min.js.
+
+If you already have these included in your project you can use spatialdatabase.nodepend.min.js.
