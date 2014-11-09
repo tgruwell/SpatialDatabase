@@ -2,8 +2,10 @@
 	<head>
 		<title>Spatial Database</title>
 		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-		<script src="../dist/spatialdatabase.min.js"></script>
-
+		<script src="../lib/rtree.min.js"></script>
+		<script src="../lib/sylvester.js"></script>
+		<script src="../src/SpatialDatabase.js"></script>
+		<!--<script src="spatialdatabase.min.js"></script>-->
 		
 		<script>
 			var SVG = {
@@ -217,8 +219,17 @@
 
 	</head>
 	<body>
+		<h1>SpatialDatabase - Visual Demonstration</h1> 
+		Documentation: <a href="https://github.com/tgruwell/SpatialDatabase">https://github.com/tgruwell/SpatialDatabase</a>
+		<br />
+		<br />
+		The big blue circle is the query criteria.
+		<br />
+		Objects that intersect the criteria are highlighted and edge intersections are indicated with a small blue dot.
+		<br />
+		Objects are rendered with SVG using the data queried from the database.
 
-		<div id="main" style="position: relative; overlow: auto;">
+		<div id="main" style="margin-top: 20px; position: relative; overlow: auto;">
 
 		</div>
 

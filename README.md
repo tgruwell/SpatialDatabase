@@ -17,6 +17,8 @@ A 2D spatial database in JavaScript. Efficiently find intersections between obje
 	var results = db.query({intersecting: {type: "circle", x: 100, y: 100, r: 50}});
 
 
+Visual Demonstration: http://timgruwell.com/projects/spatialdatabase
+
 ## Object Types &amp; Attributes
 
 point - x, y
