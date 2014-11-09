@@ -79,23 +79,23 @@ Remove an object from the database. Takes an ID as an argument.
 
 ## Query
 
-Use the "query" function and pass in an object through the "intersecting" property. These objects are defined the same way as objects that are put into the database. Any object and rotation can be used as the query criteria.
+Use the "query" function and pass in an object through the "intersecting" property. These objects are defined the same way as objects that are put into the database. Any object and rotation can be used as the query criteria. You can also include additional attributes that should be matched.
 
 
 	var db = new SpatialDatabase();
 
-	db.put({type: "point", x:10, y:20});
+	db.put({type: "point", x:10, y:20, MyAttribute: "abc"});
 
-	db.put({type: "lineseg", p1: {x:100, y:100}, p2: {x:200, y:200}, w: 20, encloseEnds: true, rot:{a:30*Math.PI/180, x:30, y:50}});
+	db.put({type: "lineseg", MyAttribute: "xyz", p1: {x:100, y:100}, p2: {x:200, y:200}, w: 20, encloseEnds: true, rot:{a:30*Math.PI/180, x:30, y:50}});
 
 	db.put({type: "polygon", points: [{x:120, y:120}, {x:130, y: 110}, {x:200, y: 200}, {x: 110, y: 220}, {x:80, y: 150}, {x: 110, y: 140}], rot:{a:80*Math.PI/180, x:101, y:300}});
 
 	db.put({type: "circle", x:40, y:90, r: 30, rot:{a:80*Math.PI/180, x:100, y:300}});
 
 	// Find all objects that are intersecting a circle
-	var results = db.query({intersecting: {type: "circle", x: 100, y: 100, r: 50}});
+	var results = db.query({MyAttribute: "xyz", intersecting: {type: "circle", x: 100, y: 100, r: 50}});
 
-The result of the query will be an array of objects that intersect the query criteria. An attribute details.points will be included with each result. This will be an array of 0 or more points indicating the point the object edge intersected with the criteria edge. The points are Sylvester Vector objects who's x and y values can be accessed as follows
+The result of the query will be an array of objects that intersect the query criteria and match MyAttribute: "xyz". An attribute details.points will be included with each result. This will be an array of 0 or more points indicating the point the object edge intersected with the criteria edge. The points are Sylvester Vector objects who's x and y values can be accessed as follows
 
 	results[i].details.points[j].e(1); // X value of one of the points 
 	results[i].details.points[j].e(2); // Y value of one of the points
@@ -109,3 +109,13 @@ Depends on
 These are included in spatialdatabase.min.js.
 
 If you already have these included in your project you can use spatialdatabase.nodepend.min.js.
+
+## MIT License
+
+Copyright (c) 2014 Timothy Gruwell
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
