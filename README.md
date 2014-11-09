@@ -18,24 +18,24 @@ A spatial database in JavaScript.
 ## Object Types &amp; Attributes
 
 * point - x, y
-** Example: db.put({type: "point", x:10, y:20});
+  * Example: db.put({type: "point", x:10, y:20});
 * rect  - x, y, w (width), h (height)
-** Example: db.put({type: "rect", x:10, y:20, w:70, h:80});
+  * Example: db.put({type: "rect", x:10, y:20, w:70, h:80});
 * lineseg - p1: {x, y}, p2: {x, y}
-** Example: db.put({type: "lineseg", p1: {x:10, y:10}, p2: {x:120, y:300});
+  * Example: db.put({type: "lineseg", p1: {x:10, y:10}, p2: {x:120, y:300});
 * polygon - points: [{x,y}, {x,y},...]
-** Example: db.put({type: "polygon", points: [{x:120, y:120}, {x:130, y: 110}, {x:200, y: 200}]});
+  * Example: db.put({type: "polygon", points: [{x:120, y:120}, {x:130, y: 110}, {x:200, y: 200}]});
 * circle - x, y, r (radius)
-** Example: db.put({type: "circle", x:40, y:90, r: 30});
+  * Example: db.put({type: "circle", x:40, y:90, r: 30});
 
 ## Rotation
 
 Any object may be rotated using the "rot" attribute.
 
 * To rotate about the object's center just specify the angle in radians.
-** Example: db.put({type: "rect", x:100, y:100, w:100, h:80, rot:45*Math.PI/180});
+  * Example: db.put({type: "rect", x:100, y:100, w:100, h:80, rot:45*Math.PI/180});
 * To rotate about an arbitrary point pass a struct in with both the angle and the point to rotate around.
-** Example: db.put({type: "rect", x:100, y:300, w:100, h:80, rot:{a:80*Math.PI/180, x:101, y:300}});
+  * Example: db.put({type: "rect", x:100, y:300, w:100, h:80, rot:{a:80*Math.PI/180, x:101, y:300}});
 
 ## Put
 
