@@ -62,10 +62,11 @@
 				$("body").on("mousemove", function(event){
 					if(typeof event.offsetX === "undefined" || typeof event.offsetY === "undefined") {
 						// Fix for browsers that don't support offset in this event
-						var targetOffset = $(event.target).offset();
+						var targetOffset = $("#main").offset();
 						event.offsetX = event.pageX - targetOffset.left;
 						event.offsetY = event.pageY - targetOffset.top;
 					}
+
 					//var p = {type: "point", x: event.offsetX, y: event.offsetY};
 					var p = {type: "circle", x: event.offsetX, y: event.offsetY, r: 100};
  					//var p = {type: "lineseg", p1: {x:100, y:100}, p2: {x:event.offsetX, y:event.offsetY}};
